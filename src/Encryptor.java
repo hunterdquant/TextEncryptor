@@ -5,44 +5,63 @@
  */
 
 public abstract class Encryptor{
-
+	
+	private byte encryptionKey;
+	private String clearText;
+	private String encryptedMessage;
+	
+	protected abstract void textEncrypt();
+	protected abstract void textDecrypt();
+	
 	/**
-	 * Encrypts the input message using specified encryption format. 
+	 * Sets the value of the encryption key.
 	 * 
-	 * @param message - A user input message to be encrypted.
-	 * @return A string array containing the encrypted message and the key.
+	 * @param key - the value to be set as the encryption key.
 	 */
-	public String[] textEncrypt(String message) {
-		
-		// Get the sum off all characters.
-		char[] msgChars = message.toCharArray();
-		int sum = 0;
-		for (char c : msgChars) {
-			sum += c;
-		}
-		// Sum mod 128 is the encryption key for the message.
-		byte key = (byte)(sum % 128);
-		// Add 4 to each char in the message.
-		for (int i = 0; i < msgChars.length; i++) {
-			msgChars[i] += 4;
-		}
-		// Our encrypted message is each character xor the key.
-		String encryptedMsg = "";
-		for (char c : msgChars) {
-			encryptedMsg += (char)(c ^ key);
-		}
-		// Return the encrypted message and the encryption key.
-		String[] msgAndKey = {encryptedMsg, "" + key};
-		return msgAndKey;
+	public void setEncryptionKey(byte key) {
+		encryptionKey = key;
 	}
 	
 	/**
+	 * Sets the clear text message to the passed string.
+	 * Sets encryptedMessage to null.
 	 * 
-	 * @param message - the encrypted message to be decrypted.
-	 * @param key - the encryption key used to decrypt the message.
-	 * @return The clear text version of the encrypted message.
+	 * @param message - The message to be assigned to clearText.
 	 */
-	public String textDecrypt (String message, byte key) {
-		return "";
+	public void setClearText(String message) {
+		clearText = message;
+		encryptedMessage = null;
+	}
+	
+	/**
+	 * Sets the encrypted message to the passed string.
+	 * Sets clearText to null.0
+	 * 
+	 * @param message - the message to be assigned to the encryptedMessage
+	 */
+	public void setEncryptedMessage(String message) {
+		encryptedMessage = message;
+		clearText = null;
+	}
+	
+	/**
+	 * @return The byte value of encryptionKey
+	 */
+	public byte getEncryptionKey() {
+		return encryptionKey;
+	}
+	
+	/**
+	 * @return The string value of encryptedMessage.
+	 */
+	public String getEncryptedMessage() {
+		return encryptedMessage;
+	}
+	
+	/**
+	 * @return The string value of clearText.
+	 */
+	public String getClearText() {
+		return clearText;
 	}
 }
