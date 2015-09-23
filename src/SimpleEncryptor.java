@@ -98,6 +98,7 @@ public class SimpleEncryptor extends Encryptor {
 	/**
 	 * Encrypts the input message using specified encryption format. 
 	 */
+	@Override
 	public void textEncrypt() {
 		
 		// Get the sum off all characters.
@@ -126,6 +127,7 @@ public class SimpleEncryptor extends Encryptor {
 	/**
 	 * Encrypts the input message using specified encryption format. 
 	 */
+	@Override
 	public void textDecrypt() {
 		
 		// Xor each char with the key to yield the clear text char + 4.
