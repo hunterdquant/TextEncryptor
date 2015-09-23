@@ -1,7 +1,7 @@
 /**
  * @author Hunter Quant <quanthd@clarkson.edu>
  *
- * Provides features for encryptor classes.
+ * Provides features for Encryptor classes.
  */
 
 public abstract class Encryptor{
@@ -10,8 +10,8 @@ public abstract class Encryptor{
 	private String clearText;
 	private String encryptedMessage;
 	
-	protected abstract void textEncrypt();
-	protected abstract void textDecrypt();
+	public abstract void textEncrypt();
+	public abstract void textDecrypt();
 	
 	/**
 	 * Sets the value of the encryption key.
@@ -35,7 +35,7 @@ public abstract class Encryptor{
 	
 	/**
 	 * Sets the encrypted message to the passed string.
-	 * Sets clearText to null.0
+	 * Sets clearText to null.
 	 * 
 	 * @param message - the message to be assigned to the encryptedMessage
 	 */
@@ -45,6 +45,8 @@ public abstract class Encryptor{
 	}
 	
 	/**
+	 * Get the encryption key.
+	 * 
 	 * @return The byte value of encryptionKey
 	 */
 	public byte getEncryptionKey() {
@@ -52,6 +54,8 @@ public abstract class Encryptor{
 	}
 	
 	/**
+	 * Gets the encrypted message.
+	 * 
 	 * @return The string value of encryptedMessage.
 	 */
 	public String getEncryptedMessage() {
@@ -59,6 +63,8 @@ public abstract class Encryptor{
 	}
 	
 	/**
+	 * Gets the clear text message.
+	 * 
 	 * @return The string value of clearText.
 	 */
 	public String getClearText() {
